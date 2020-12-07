@@ -345,9 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbCharacter: {fileID: 1319167349}
-  target: {fileID: 646153997}
-  speed: 3
-  speedModifier: 3
+  speed: 10
 --- !u!54 &1319167349 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 4459134265694983563, guid: 1389e4116df294449a53be29e952a0c2,
@@ -430,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 4459134265694983563, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Constraints
-      value: 118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4943147841532969945, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
