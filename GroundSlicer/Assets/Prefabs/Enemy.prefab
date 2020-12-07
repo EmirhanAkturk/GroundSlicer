@@ -4893,6 +4893,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5942,8 +5943,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6333100546937998259}
   - component: {fileID: 4137034154540197577}
-  - component: {fileID: 7508296231339861169}
   - component: {fileID: 5134743491802162719}
+  - component: {fileID: 5587041857610662029}
+  - component: {fileID: 7508296231339861169}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -5987,19 +5989,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &7508296231339861169
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7041633912694815136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.0527725, y: 22.899645, z: 9.528109}
-  m_Center: {x: -0.156018, y: 10.949822, z: -0.8945419}
 --- !u!54 &5134743491802162719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6016,6 +6005,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!135 &5587041857610662029
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041633912694815136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 100
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &7508296231339861169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041633912694815136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.0527725, y: 22.899645, z: 9.528109}
+  m_Center: {x: -0.156018, y: 10.949822, z: -0.8945419}
 --- !u!1 &7365866759605353672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6154,6 +6169,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
