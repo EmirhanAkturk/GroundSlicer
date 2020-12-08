@@ -142,7 +142,7 @@ MonoBehaviour:
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 1319167346}
   bulletSpeed: 3
-  bulletSpawnSpeed: 2
+  bulletSpawnSpeed: 3
   fear: 12.5
   smoothSpeed: 3
 --- !u!114 &194976371
@@ -373,13 +373,30 @@ Animation:
   m_GameObject: {fileID: 1319167345}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+  m_Animation: {fileID: 7400000, guid: 3e07999aef2477d4bad9b5fdd18c461b, type: 2}
   m_Animations:
+  - {fileID: 7400000, guid: 6d5d392561b488b458e0817a10abca49, type: 2}
   - {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+  - {fileID: 7400000, guid: 3e07999aef2477d4bad9b5fdd18c461b, type: 2}
+  - {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+  - {fileID: 7400000, guid: f7cccad787e40fe44b2ab0ba96c356bd, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_CullingType: 1
+--- !u!65 &1319167352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319167345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.636901, y: 22.353153, z: 8.002669}
+  m_Center: {x: -0.34103224, y: 10.676576, z: 0.38966468}
 --- !u!1 &1698877571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2044132575407810618, guid: 1389e4116df294449a53be29e952a0c2,
@@ -401,7 +418,7 @@ MonoBehaviour:
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 1319167346}
   bulletSpeed: 3
-  bulletSpawnSpeed: 2
+  bulletSpawnSpeed: 3
   fear: 12.5
   smoothSpeed: 3
 --- !u!114 &1698877578
@@ -437,7 +454,7 @@ MonoBehaviour:
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 1319167346}
   bulletSpeed: 3
-  bulletSpawnSpeed: 2
+  bulletSpawnSpeed: 3
   fear: 12.5
   smoothSpeed: 3
 --- !u!114 &1762740347
@@ -459,7 +476,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 167777690622496856, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 287019163630696780, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 594252481614608512, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -524,10 +551,65 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+    - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
     - target: {fileID: 4459134265694983563, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Constraints
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+    - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 4940287878119749459, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4943147841532969945, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -555,6 +637,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5531663210737948036, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684748026484924299, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -644,6 +731,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+    - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
     - target: {fileID: 8511317085184394485, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Enabled
@@ -654,6 +766,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: d73dfa02e8b95084f947e13eaabf0560, type: 2}
+    - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1389e4116df294449a53be29e952a0c2, type: 3}
 --- !u!1 &2029771825 stripped
@@ -677,7 +814,7 @@ MonoBehaviour:
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 1319167346}
   bulletSpeed: 3
-  bulletSpawnSpeed: 2
+  bulletSpawnSpeed: 3
   fear: 12.5
   smoothSpeed: 3
 --- !u!114 &2029771832

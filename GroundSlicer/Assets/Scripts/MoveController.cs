@@ -7,6 +7,7 @@ public class MoveController : MonoBehaviour
 {
     [SerializeField] Rigidbody rbCharacter;
     [SerializeField] float speed;
+    Animation anim;
     float vX0, vX1;
     float vY0, vY1;
     float m1, m2;
@@ -20,12 +21,12 @@ public class MoveController : MonoBehaviour
     void Start()
     {
         rbCharacter = GetComponent<Rigidbody>();
+        anim = GetComponent<Animation>();
         vY0 = speed;
     }
 
     void Update()
-    {
-  
+    {  
         TouchControl();
 
         rbCharacter.velocity = currVelocity;
@@ -36,6 +37,7 @@ public class MoveController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            anim.Play("Run");
             Time.timeScale = 1f;
  
             isMove = true;
@@ -87,8 +89,6 @@ public class MoveController : MonoBehaviour
 
                 else
                 {
-
-
                     if (vX0 != 0)
                         m1 = vY0 / vX0;
 
@@ -100,7 +100,6 @@ public class MoveController : MonoBehaviour
                         vX1 *= -1;
                     }
                     vY1 = m2 * vX1;
-
 
                     if(lastPos.x > firstPos.x )//1. veya 2. bölgede
                     {
@@ -141,6 +140,16 @@ public class MoveController : MonoBehaviour
             // agir cekim
 
             Time.timeScale = 0.1f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            anim.Stop("Run");
+            anim.Play("Success");
+            rbCharacter.velocity = Vector3.zero;
         }
     }
 }

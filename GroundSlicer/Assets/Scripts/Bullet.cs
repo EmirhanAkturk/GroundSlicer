@@ -23,7 +23,7 @@ public class Bullet
         }
         vY1 = m2 * vX1;
 
-        Vector3 bulletPosition = new Vector3(shoterPos.x + vX1 * 0.5f, shoterPos.y + 3, shoterPos.z + vY1 * 1);
+        Vector3 bulletPosition = new Vector3(shoterPos.x + vX1 * 0.3f, shoterPos.y + 1.2f, shoterPos.z + vY1 * 0.3f);
 
         newBullet.transform.position = bulletPosition;
         rb = newBullet.GetComponent<Rigidbody>();

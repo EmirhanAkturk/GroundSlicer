@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float bulletSpawnSpeed;
     [SerializeField] float fear;
     [SerializeField] float smoothSpeed;
+    Animation anim;
 
     float bulletTimer;
     GameObject newBullet;
@@ -19,6 +20,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         bullets = new List<Bullet>();
+        anim = GetComponent<Animation>();
+        StartCoroutine(BulletSpawner());
     }
 
     // Update is called once per frame
@@ -36,15 +39,14 @@ public class EnemyAI : MonoBehaviour
         {
             if (bulletTimer >= bulletSpawnSpeed )
             {
-                Vector3 bulletPosition = new Vector3(0, 0, 0);
-
-                newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
-                bullets.Add( new Bullet (player.position, transform.position,newBullet,bulletSpeed));
+                anim.Stop("Run");
+                StartCoroutine(BulletSpawner());
                 bulletTimer = 0;
             }
         }
         else
         {
+            anim.Play("Run");
             transform.position = Vector3.MoveTowards(transform.position, player.position, smoothSpeed * Time.deltaTime);
         }
 
@@ -52,7 +54,6 @@ public class EnemyAI : MonoBehaviour
         {
             bullets[i].BulletPositionUpdate();
         }
-        Debug.Log("---" + Vector3.Distance(player.position, transform.position));
     }
 
     bool IsClose(float fear)
@@ -65,6 +66,15 @@ public class EnemyAI : MonoBehaviour
         {
             return false;
         }
+    }
+
+    IEnumerator BulletSpawner()
+    {
+        anim.Play("Shot");
+        yield return new WaitForSeconds(0.5f);
+        Vector3 bulletPosition = new Vector3(0, 0, 0);
+        newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+        bullets.Add(new Bullet(player.position, transform.position, newBullet, bulletSpeed));
     }
 
 }
