@@ -8,8 +8,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] GameObject character;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletSpawnSpeed;
-   
+
     float bulletTimer;
+    GameObject newBullet;
     List<Bullet> bullets;
 
     // Start is called before the first frame update
@@ -31,7 +32,10 @@ public class EnemyAI : MonoBehaviour
 
         if (bulletTimer >= bulletSpawnSpeed)
         {
-            bullets.Add( new Bullet (character.transform.position, transform.position,bullet ,bulletSpeed));
+            Vector3 bulletPosition = new Vector3(0, 0, 0);
+
+            newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+            bullets.Add( new Bullet (character.transform.position, transform.position,newBullet,bulletSpeed));
             bulletTimer = 0;
         }
       

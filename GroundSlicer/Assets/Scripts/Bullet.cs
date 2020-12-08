@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Bullet : MonoBehaviour
+public class Bullet 
 {
-    GameObject newBullet;
     Rigidbody rb;
 
     float m2;
@@ -13,7 +12,7 @@ public class Bullet : MonoBehaviour
     float vY1;
 
 
-    public Bullet(Vector3 playerPos, Vector3 shoterPos, GameObject bullet, float bulletSpeed)
+    public Bullet(Vector3 playerPos, Vector3 shoterPos, GameObject newBullet, float bulletSpeed)
     {
         m2 = (playerPos.z - shoterPos.z) / (playerPos.x - shoterPos.x);
         vX1 = bulletSpeed / Mathf.Sqrt(1 + m2 * m2);
@@ -26,8 +25,7 @@ public class Bullet : MonoBehaviour
 
         Vector3 bulletPosition = new Vector3(shoterPos.x + vX1 * 0.5f, shoterPos.y + 3, shoterPos.z + vY1 * 1);
 
-        newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
-
+        newBullet.transform.position = bulletPosition;
         rb = newBullet.GetComponent<Rigidbody>();
     }
 
