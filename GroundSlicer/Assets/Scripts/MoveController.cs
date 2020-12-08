@@ -107,7 +107,6 @@ public class MoveController : MonoBehaviour
 
                     //float tanTeta = (m1 - m2) / (1 + m1 * m2);
                     //rotationAngle = Mathf.Atan(tanTeta) * Mathf.Rad2Deg;
-                    //Debug.Log("Angle:" + rotationAngle);
 
                     if(lastPos.x > firstPos.x )//1. veya 2. bölgede
                     {
@@ -119,7 +118,7 @@ public class MoveController : MonoBehaviour
                         else //2. bölge
                         {
                             float tanTheta = vY1 / vX1;
-                            rotationAngle =90+ Mathf.Atan(tanTheta) * Mathf.Rad2Deg;
+                            rotationAngle =90+ Mathf.Abs( Mathf.Atan(tanTheta) * Mathf.Rad2Deg);
                         }
                     }
                     else //3. veya 4. bölge
@@ -132,10 +131,12 @@ public class MoveController : MonoBehaviour
                         else //4. bölge
                         {
                             float tanTheta = vY1 / vX1;
-                            rotationAngle = 270 + Mathf.Atan(tanTheta) * Mathf.Rad2Deg;
+                            rotationAngle = 270 + Mathf.Abs( Mathf.Atan(tanTheta) * Mathf.Rad2Deg);
                         }
                     }
                 }
+                Debug.Log("Angle:" + rotationAngle);
+
                 currVelocity = new Vector3(vX1, 0, vY1);
             }
         }
