@@ -6,9 +6,7 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     [SerializeField] Rigidbody rbCharacter;
-    //[SerializeField] GameObject target;
     [SerializeField] float speed;
-    //[SerializeField] float speedModifier;
     float vX0, vX1;
     float vY0, vY1;
     float m1, m2;
@@ -23,17 +21,14 @@ public class MoveController : MonoBehaviour
     {
         rbCharacter = GetComponent<Rigidbody>();
         vY0 = speed;
-        currVelocity = new Vector3(0, 0, vY0);
-        //currVelocity = new Vector3(-speed, 0, 0);
     }
 
     void Update()
     {
-        //vY0 = speed;
-
-        //rbCharacter.velocity = new Vector3(vX0, 0, vY0);
-        rbCharacter.velocity = currVelocity;
+  
         TouchControl();
+
+        rbCharacter.velocity = currVelocity;
         transform.rotation = Quaternion.Euler(0, rotationAngle, 0);
     }
 
@@ -41,6 +36,8 @@ public class MoveController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Time.timeScale = 1f;
+ 
             isMove = true;
 
             vX1 = vX0;
@@ -48,13 +45,12 @@ public class MoveController : MonoBehaviour
             currVelocity = new Vector3(vX0, 0, vY0);
 
             firstPos = Input.mousePosition;
+
         }
         if (Input.GetMouseButton(0) && isMove)
         {
             lastPos = Input.mousePosition;
 
-            //Debug.Log("*****" + firstPos.x + " - " + firstPos.y + "*****");
-            //Debug.Log(Input.mousePosition.x + " - " + Input.mousePosition.y);
             if (firstPos != lastPos)
             {
                 if (firstPos.x == lastPos.x)
@@ -105,8 +101,6 @@ public class MoveController : MonoBehaviour
                     }
                     vY1 = m2 * vX1;
 
-                    //float tanTeta = (m1 - m2) / (1 + m1 * m2);
-                    //rotationAngle = Mathf.Atan(tanTeta) * Mathf.Rad2Deg;
 
                     if(lastPos.x > firstPos.x )//1. veya 2. bölgede
                     {
@@ -135,7 +129,6 @@ public class MoveController : MonoBehaviour
                         }
                     }
                 }
-                Debug.Log("Angle:" + rotationAngle);
 
                 currVelocity = new Vector3(vX1, 0, vY1);
             }
@@ -146,6 +139,8 @@ public class MoveController : MonoBehaviour
             vX0 = vX1;
             vY0 = vY1;
             // agir cekim
+
+            Time.timeScale = 0.1f;
         }
     }
 }
