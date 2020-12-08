@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] GameObject splashPanel;
+    [SerializeField] GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class UIController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("FirstOpen") == 0)
         {
+            player.SetActive(false);
             splashPanel.SetActive(true);
         }
     }

@@ -1056,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79bc95c27660d742b71bb7540274157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1319167345}
 --- !u!1 &1698877571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2044132575407810618, guid: 1389e4116df294449a53be29e952a0c2,
@@ -1241,6 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashPanel: {fileID: 1572090065}
+  player: {fileID: 1319167345}
 --- !u!1001 &1931429263
 PrefabInstance:
   m_ObjectHideFlags: 0
