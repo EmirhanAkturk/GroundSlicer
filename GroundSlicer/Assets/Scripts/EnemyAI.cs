@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bulletobj = FindObjectOfType<Bullet>();
+
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
 
         if (bulletTimer >= bulletSpawnSpeed)
         {
-            //Bullet newBullet(character.transform.position, transform.position);
+            //new Bullet(character.transform.position, transform.position);
             characterAtackPos = character.transform.position;
             
             m2 = (characterAtackPos.z - transform.position.z) / (characterAtackPos.x - transform.position.x);
@@ -49,11 +49,12 @@ public class EnemyAI : MonoBehaviour
                 vX1 *= -1;
             }
             vY1 = m2 * vX1;
-
+            
             Vector3 bulletPosition = new Vector3(transform.position.x + vX1 * 1, transform.position.y + 3, transform.position.z + vY1 * 1);
-
+            
             bulletTimer = 0;
             newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+            newBullet.transform.SetParent(gameObject.transform);
             //Destroy(newBullet, bulletSpawnSpeed - 0.2f);
             //characterAtackPosX = character.transform.position.x;
             //characterAtackPosY = character.transform.position.y;

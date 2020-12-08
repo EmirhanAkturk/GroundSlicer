@@ -139,10 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41e1b8b2190b0c40bfdffb46b441be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1319167345}
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
+  character: {fileID: 1319167345}
   bulletSpawnSpeed: 2
-  bulletTimer: 3
   bulletSpeed: 3
 --- !u!135 &194976370
 SphereCollider:
@@ -404,10 +403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41e1b8b2190b0c40bfdffb46b441be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1319167345}
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
+  character: {fileID: 1319167345}
   bulletSpawnSpeed: 2
-  bulletTimer: 3
   bulletSpeed: 3
 --- !u!114 &1698877578
 MonoBehaviour:
@@ -439,10 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41e1b8b2190b0c40bfdffb46b441be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1319167345}
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
+  character: {fileID: 1319167345}
   bulletSpawnSpeed: 2
-  bulletTimer: 3
   bulletSpeed: 3
 --- !u!135 &1762740346
 SphereCollider:
@@ -691,10 +688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41e1b8b2190b0c40bfdffb46b441be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1319167345}
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
+  character: {fileID: 1319167345}
   bulletSpawnSpeed: 2
-  bulletTimer: 3
   bulletSpeed: 3
 --- !u!135 &2029771831
 SphereCollider:
