@@ -141,21 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   character: {fileID: 1319167345}
-  bulletSpawnSpeed: 2
   bulletSpeed: 3
---- !u!135 &194976370
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194976364}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 100
-  m_Center: {x: 0, y: 0, z: 0}
+  bulletSpawnSpeed: 2
 --- !u!114 &194976371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,8 +392,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   character: {fileID: 1319167345}
-  bulletSpawnSpeed: 2
   bulletSpeed: 3
+  bulletSpawnSpeed: 2
 --- !u!114 &1698877578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,21 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   character: {fileID: 1319167345}
-  bulletSpawnSpeed: 2
   bulletSpeed: 3
---- !u!135 &1762740346
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762740340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 100
-  m_Center: {x: 0, y: 0, z: 0}
+  bulletSpawnSpeed: 2
 --- !u!114 &1762740347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,21 +664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   character: {fileID: 1319167345}
-  bulletSpawnSpeed: 2
   bulletSpeed: 3
---- !u!135 &2029771831
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029771825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 100
-  m_Center: {x: 0, y: 0, z: 0}
+  bulletSpawnSpeed: 2
 --- !u!114 &2029771832
 MonoBehaviour:
   m_ObjectHideFlags: 0
