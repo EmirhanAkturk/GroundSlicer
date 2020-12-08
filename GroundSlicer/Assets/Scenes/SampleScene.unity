@@ -140,9 +140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
-  character: {fileID: 1319167345}
+  player: {fileID: 1319167346}
   bulletSpeed: 3
   bulletSpawnSpeed: 2
+  fear: 12.5
+  smoothSpeed: 3
 --- !u!114 &194976371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +338,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1931429263}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1319167346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6652125567406696276, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1319167347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,9 +399,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
-  character: {fileID: 1319167345}
+  player: {fileID: 1319167346}
   bulletSpeed: 3
   bulletSpawnSpeed: 2
+  fear: 12.5
+  smoothSpeed: 3
 --- !u!114 &1698877578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,9 +435,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
-  character: {fileID: 1319167345}
+  player: {fileID: 1319167346}
   bulletSpeed: 3
   bulletSpawnSpeed: 2
+  fear: 12.5
+  smoothSpeed: 3
 --- !u!114 &1762740347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,9 +675,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
-  character: {fileID: 1319167345}
+  player: {fileID: 1319167346}
   bulletSpeed: 3
   bulletSpawnSpeed: 2
+  fear: 12.5
+  smoothSpeed: 3
 --- !u!114 &2029771832
 MonoBehaviour:
   m_ObjectHideFlags: 0

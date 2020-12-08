@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject character;
+    [SerializeField] Transform player;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletSpawnSpeed;
+    [SerializeField] float fear;
+    [SerializeField] float smoothSpeed;
 
     float bulletTimer;
     GameObject newBullet;
@@ -22,7 +24,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(character.transform.position);
+        transform.LookAt(player.position);
         Atack();
     }
 
@@ -30,21 +32,39 @@ public class EnemyAI : MonoBehaviour
     {
         bulletTimer += Time.deltaTime;
 
-        if (bulletTimer >= bulletSpawnSpeed)
+        if (IsClose(fear))
         {
-            Vector3 bulletPosition = new Vector3(0, 0, 0);
+            if (bulletTimer >= bulletSpawnSpeed )
+            {
+                Vector3 bulletPosition = new Vector3(0, 0, 0);
 
-            newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
-            bullets.Add( new Bullet (character.transform.position, transform.position,newBullet,bulletSpeed));
-            bulletTimer = 0;
+                newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+                bullets.Add( new Bullet (player.position, transform.position,newBullet,bulletSpeed));
+                bulletTimer = 0;
+            }
         }
-      
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.position, smoothSpeed * Time.deltaTime);
+        }
 
-        for(int i=0; i< bullets.Count; ++i)
+        for (int i=0; i< bullets.Count; ++i)
         {
             bullets[i].BulletPositionUpdate();
         }
+        Debug.Log("---" + Vector3.Distance(player.position, transform.position));
+    }
 
+    bool IsClose(float fear)
+    {
+        if (Vector3.Distance(player.position, transform.position) <= fear)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
