@@ -11,6 +11,9 @@ public class EnemyAI : MonoBehaviour
     float bulletTimer;
     GameObject newBullet;
     Vector3 characterAtackPos;
+    float characterAtackPosX;
+    float characterAtackPosY;
+    float characterAtackPosZ;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +35,17 @@ public class EnemyAI : MonoBehaviour
         if (bulletTimer >= bulletSpawnSpeed)
         {
             bulletTimer = 0;
-            newBullet = Instantiate(bullet);
-            Destroy(newBullet, bulletSpawnSpeed - 0.2f);
-            characterAtackPos = character.transform.position;
+            newBullet = Instantiate(bullet, transform.position, transform.rotation);
+            //Destroy(newBullet, bulletSpawnSpeed - 0.2f);
+            characterAtackPos = character.transform.position * 5;
+            characterAtackPosX = character.transform.position.x;
+            characterAtackPosY = character.transform.position.y;
+            characterAtackPosZ = character.transform.position.z;
         }
         if (newBullet != null)
         {
-            newBullet.transform.position = Vector3.MoveTowards(transform.position, characterAtackPos, bulletSpeed * Time.deltaTime);
+            //newBullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1);
+            newBullet.transform.position = Vector3.MoveTowards(newBullet.transform.position, characterAtackPos, bulletSpeed * Time.deltaTime);
         }
     }
 }
