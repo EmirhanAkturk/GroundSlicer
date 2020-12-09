@@ -22,7 +22,7 @@ public class FollowCamera : MonoBehaviour
     // kamera takibini yapar
     void Follow()
     {
-        Vector3 desiredPosition = offset + new Vector3(0, target.position.y, target.position.z);
+        Vector3 desiredPosition = offset + new Vector3(target.position.x, target.position.y, target.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
     }
