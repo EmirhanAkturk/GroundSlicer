@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &54416152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8882862600799359237, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &96805508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5349136756062851858, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &192025906
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 852097683}
+  meshEnemy: {fileID: 96805508}
+  deathParticle: {fileID: 897155465}
   bulletSpeed: 3
   bulletSpawnSpeed: 3
   fear: 12.5
@@ -860,6 +874,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864624276}
   m_CullTransparentMesh: 0
+--- !u!1 &897155465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4439767707865019918, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &924163865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1295,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139692183}
   m_CullTransparentMesh: 0
+--- !u!1 &1253982589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4634439421899242442, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1256006040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 852097683}
+  meshEnemy: {fileID: 2109305832}
+  deathParticle: {fileID: 54416152}
   bulletSpeed: 3
   bulletSpawnSpeed: 3
   fear: 12.5
@@ -2328,6 +2356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 852097683}
+  meshEnemy: {fileID: 2125955592}
+  deathParticle: {fileID: 2136663863}
   bulletSpeed: 3
   bulletSpawnSpeed: 3
   fear: 12.5
@@ -2743,6 +2773,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 458996224510986414, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 458996224510986414, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 464317884969183953, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Layer
@@ -2872,6 +2912,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 879762349496164470, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 879762349496164470, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 882096733406864167, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -22531,7 +22581,7 @@ PrefabInstance:
     - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000461731678790430, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -22543,6 +22593,11 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[2]
       value: 
       objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 4032442013026164438, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4039937685296831320, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Layer
@@ -22723,6 +22778,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4439767707865019918, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4459134265694983563, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Constraints
@@ -22741,7 +22801,7 @@ PrefabInstance:
     - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4462886015803083718, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -22852,6 +22912,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649355216709087141, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649355216709087141, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4658049683440584815, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -23127,6 +23197,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399524032172230525, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399524032172230525, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5412142756053281926, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -24193,6 +24273,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8155282152225634781, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8166437999530862113, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Layer
@@ -24211,7 +24296,7 @@ PrefabInstance:
     - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8169252587727930389, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -24496,7 +24581,7 @@ PrefabInstance:
     - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8877762969156758733, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
@@ -24508,6 +24593,11 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[2]
       value: 
       objectReference: {fileID: 7400000, guid: a7fdf29c45843314abba265db3322890, type: 2}
+    - target: {fileID: 8882862600799359237, guid: 1389e4116df294449a53be29e952a0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8889249722222294073, guid: 1389e4116df294449a53be29e952a0c2,
         type: 3}
       propertyPath: m_Layer
@@ -25591,6 +25681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1744058116788508713, guid: 632b198580f9b694ca5a0a557f6f7b7f, type: 3}
   player: {fileID: 852097683}
+  meshEnemy: {fileID: 1253982589}
+  deathParticle: {fileID: 2096727453}
   bulletSpeed: 3
   bulletSpawnSpeed: 3
   fear: 12.5
@@ -25610,6 +25702,30 @@ MonoBehaviour:
 --- !u!1 &2074424536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3307162406773587154, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2096727453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4032442013026164438, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2109305832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 927898496334853145, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125955592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 471658964848352449, guid: 1389e4116df294449a53be29e952a0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931429263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136663863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8155282152225634781, guid: 1389e4116df294449a53be29e952a0c2,
     type: 3}
   m_PrefabInstance: {fileID: 1931429263}
   m_PrefabAsset: {fileID: 0}

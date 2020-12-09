@@ -7,6 +7,8 @@ public class EnemyAI : MonoBehaviour
     Win win;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject meshEnemy;
+    [SerializeField] GameObject deathParticle;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletSpawnSpeed;
     [SerializeField] float fear;
@@ -14,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     Animation anim;
 
     float bulletTimer;
+    float firstHigh;
     GameObject newBullet;
     List<Bullet> bullets;
 
@@ -24,6 +27,7 @@ public class EnemyAI : MonoBehaviour
         bullets = new List<Bullet>();
         anim = GetComponent<Animation>();
         StartCoroutine(BulletSpawner());
+        firstHigh = transform.position.y;
     }
 
     // Update is called once per frame
@@ -31,6 +35,7 @@ public class EnemyAI : MonoBehaviour
     {
         GameOverControl();
         Atack();
+        StartCoroutine(FallDead());
     }
 
     void Atack()
@@ -99,6 +104,18 @@ public class EnemyAI : MonoBehaviour
         if (player == null)
         {
             GetComponent<EnemyAI>().enabled = false;
+        }
+    }
+
+    IEnumerator FallDead()
+    {
+        if (transform.position.y < firstHigh)
+        {
+            anim.Play("Fall");
+            yield return new WaitForSeconds(1f);
+            meshEnemy.SetActive(false);
+            deathParticle.SetActive(true);
+            Destroy(gameObject, 2f);
         }
     }
 }
