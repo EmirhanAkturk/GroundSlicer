@@ -26,13 +26,15 @@ public class ParticleCollision : MonoBehaviour
 
 
 
-    void AddRigitBody()
+    void AddRigidBody()
     {
 
         for (int i = 0; i < cubes.Count; ++i)
         { 
-            cubes[i].transform.localScale*=0.95f;
-            cubes[i].AddComponent<Rigidbody>();
+            cubes[0].transform.localScale*=0.95f;
+            cubes[0].AddComponent<Rigidbody>();
+            Destroy(cubes[0], 2f);
+            cubes.RemoveAt(0);
         }
 
     }
@@ -65,8 +67,8 @@ public class ParticleCollision : MonoBehaviour
                     {
                         for (int j = 0; j < i; ++j)
                             cubes.RemoveAt(0);
-                        
-                        AddRigitBody();
+
+                        AddRigidBody();
                     }
                    
                     break;
@@ -122,13 +124,16 @@ public class ParticleCollision : MonoBehaviour
 
         for(int i = 1;i<cubes.Count-1; ++i)
         {
-            X1 = cubes[i].transform.position.x;
-            Z1 = cubes[i].transform.position.z;
+            if (cubes[i] != null)
+            {
+                X1 = cubes[i].transform.position.x;
+                Z1 = cubes[i].transform.position.z;
 
-            if(m != Slope(X0, Z0, X1, Z1)){
-                return false;
+                if (m != Slope(X0, Z0, X1, Z1))
+                {
+                    return false;
+                }
             }
-
         }
         return true;
     }
@@ -153,12 +158,14 @@ public class ParticleCollision : MonoBehaviour
 
         for (int i = 1; i < cubes.Count - 1; ++i)
         {
-            X1 = cubes[i].transform.position.x;
-            Z1 = cubes[i].transform.position.z;
+            if(cubes[i] != null) { 
+                X1 = cubes[i].transform.position.x;
+                Z1 = cubes[i].transform.position.z;
 
-            if (!IsSideBySide(X0, Z0, X1, Z1))
-            {
-                return false;
+                if (!IsSideBySide(X0, Z0, X1, Z1))
+                {
+                    return false;
+                }
             }
 
         }
