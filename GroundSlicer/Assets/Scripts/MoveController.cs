@@ -30,7 +30,7 @@ public class MoveController : MonoBehaviour
         TouchControl();
 
         rbCharacter.velocity = currVelocity;
-        transform.rotation = Quaternion.Euler(0, rotationAngle, 0);
+        RotateSmooth(rotationAngle);
     }
 
     void TouchControl()
@@ -137,10 +137,19 @@ public class MoveController : MonoBehaviour
             isMove = false;
             vX0 = vX1;
             vY0 = vY1;
-            // agir cekim
 
             Time.timeScale = 0.1f;
         }
+    }
+
+    void RotateSmooth(float rotateAngle)
+    {
+        float angleDistance = rotateAngle - transform.rotation.y;
+        //Debug.Log("*******" + angleDistance);
+       
+        transform.Rotate(0, angleDistance, 0);
+        transform.rotation = Quaternion.Euler(0, rotationAngle, 0);
+
     }
 
     private void OnTriggerEnter(Collider other)
