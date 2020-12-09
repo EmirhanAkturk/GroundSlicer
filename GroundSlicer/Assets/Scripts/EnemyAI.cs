@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] Transform player;
+    [SerializeField] GameObject player;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletSpawnSpeed;
     [SerializeField] float fear;
@@ -27,38 +27,50 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.position);
+        GameOverControl();
         Atack();
     }
 
     void Atack()
     {
-        bulletTimer += Time.deltaTime;
-
-        if (IsClose(fear))
+        if (player != null)
         {
-            if (bulletTimer >= bulletSpawnSpeed )
+            bulletTimer += Time.deltaTime;
+            transform.LookAt(player.transform.position);
+
+            if (IsClose(fear))
             {
-                anim.Stop("Run");
-                StartCoroutine(BulletSpawner());
-                bulletTimer = 0;
+                if (bulletTimer >= bulletSpawnSpeed)
+                {
+                    anim.Stop("Run");
+                    StartCoroutine(BulletSpawner());
+                    bulletTimer = 0;
+                }
+            }
+            else
+            {
+                anim.Play("Run");
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, smoothSpeed * Time.deltaTime);
+            }
+
+            for (int i = 0; i < bullets.Count; ++i)
+            {
+                bullets[i].BulletPositionUpdate();
             }
         }
         else
         {
-            anim.Play("Run");
-            transform.position = Vector3.MoveTowards(transform.position, player.position, smoothSpeed * Time.deltaTime);
-        }
-
-        for (int i=0; i< bullets.Count; ++i)
-        {
-            bullets[i].BulletPositionUpdate();
+            for (int i = 0; i < bullets.Count; ++i)
+            {
+                Destroy(bullets[i].GetBulletObject());
+                bullets.RemoveAt(i);
+            }
         }
     }
 
     bool IsClose(float fear)
     {
-        if (Vector3.Distance(player.position, transform.position) <= fear)
+        if (Vector3.Distance(player.transform.position, transform.position) <= fear)
         {
             return true;
         }
@@ -74,7 +86,14 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Vector3 bulletPosition = new Vector3(0, 0, 0);
         newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
-        bullets.Add(new Bullet(player.position, transform.position, newBullet, bulletSpeed));
+        bullets.Add(new Bullet(player.transform.position, transform.position, newBullet, bulletSpeed));
     }
 
+    void GameOverControl()
+    {
+        if (player == null)
+        {
+            GetComponent<EnemyAI>().enabled = false;
+        }
+    }
 }
