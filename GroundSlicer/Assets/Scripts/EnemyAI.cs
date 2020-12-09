@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    Win win;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject player;
     [SerializeField] float bulletSpeed;
@@ -19,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        win = FindObjectOfType<Win>();
         bullets = new List<Bullet>();
         anim = GetComponent<Animation>();
         StartCoroutine(BulletSpawner());
@@ -33,7 +35,7 @@ public class EnemyAI : MonoBehaviour
 
     void Atack()
     {
-        if (player != null)
+        if (player != null && !win.GetWin())
         {
             bulletTimer += Time.deltaTime;
             transform.LookAt(player.transform.position);
@@ -85,8 +87,11 @@ public class EnemyAI : MonoBehaviour
         anim.Play("Shot");
         yield return new WaitForSeconds(0.5f);
         Vector3 bulletPosition = new Vector3(0, 0, 0);
-        newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
-        bullets.Add(new Bullet(player.transform.position, transform.position, newBullet, bulletSpeed));
+        if (player != null)
+        {
+            newBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+            bullets.Add(new Bullet(player.transform.position, transform.position, newBullet, bulletSpeed));
+        }
     }
 
     void GameOverControl()

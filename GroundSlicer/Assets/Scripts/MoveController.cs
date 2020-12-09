@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
+    Win win;
     [SerializeField] Rigidbody rbCharacter;
     [SerializeField] float speed;
     Animation anim;
@@ -23,6 +24,7 @@ public class MoveController : MonoBehaviour
         rbCharacter = GetComponent<Rigidbody>();
         anim = GetComponent<Animation>();
         vY0 = speed;
+        win = FindObjectOfType<Win>();
     }
 
     void Update()
@@ -134,11 +136,13 @@ public class MoveController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            isMove = false;
-            vX0 = vX1;
-            vY0 = vY1;
-
-            Time.timeScale = 0.1f;
+            if (!win.GetWin())
+            {
+                isMove = false;
+                vX0 = vX1;
+                vY0 = vY1;
+                Time.timeScale = 0.1f;
+            }
         }
     }
 
@@ -149,16 +153,5 @@ public class MoveController : MonoBehaviour
        
         transform.Rotate(0, angleDistance, 0);
         transform.rotation = Quaternion.Euler(0, rotationAngle, 0);
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Finish"))
-        {
-            anim.Stop("Run");
-            anim.Play("Success");
-            rbCharacter.velocity = Vector3.zero;
-        }
     }
 }
