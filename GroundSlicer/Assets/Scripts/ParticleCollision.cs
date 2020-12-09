@@ -5,7 +5,8 @@ using UnityEngine;
 public class ParticleCollision : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] ParticleSystem particle;
+    //[SerializeField] ParticleSystem particle;
+    TrailRenderer trail;
 
     //List<ParticleCollisionEvent> collisionsEvents;
     List<GameObject> cubes;
@@ -14,8 +15,9 @@ public class ParticleCollision : MonoBehaviour
 
     void Start()
     {
+        trail = GetComponent<TrailRenderer>();
         cubes = new List<GameObject>();
-        Debug.Log("Particle.duration:" + particle.duration);
+        Debug.Log("Particle.duration:" + trail.time);
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class ParticleCollision : MonoBehaviour
         if (cubes.Count == 0)
         {
             cubes.Add(otherObject);
-            StartCoroutine(RemoveFromList(otherObject, particle.duration));
+            StartCoroutine(RemoveFromList(otherObject, trail.time));
             Debug.Log(otherObject.transform.position);
         }
         else if(cubes[cubes.Count -1] != otherObject)
@@ -77,7 +79,7 @@ public class ParticleCollision : MonoBehaviour
             if (!isOnList)
             {
                 cubes.Add(otherObject);
-                StartCoroutine(RemoveFromList(otherObject,particle.duration));
+                StartCoroutine(RemoveFromList(otherObject, trail.time));
                 Debug.Log(otherObject.transform.position);
 
             }
