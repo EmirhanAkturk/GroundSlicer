@@ -149,7 +149,6 @@ public class MoveController : MonoBehaviour
     void RotateSmooth(float rotateAngle)
     {
         float angleDistance = rotateAngle - transform.rotation.y;
-        //Debug.Log("*******" + angleDistance);
        
         transform.Rotate(0, angleDistance, 0);
         transform.rotation = Quaternion.Euler(0, rotationAngle, 0);

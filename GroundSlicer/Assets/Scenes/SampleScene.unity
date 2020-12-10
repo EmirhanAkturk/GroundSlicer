@@ -667,6 +667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d20336e038b8d4cb272b3c5dd0b7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PitTrigger: {fileID: 4900671933226104160, guid: 017d842cf7035694aaa70963501c251a,
+    type: 3}
 --- !u!65 &806221477
 BoxCollider:
   m_ObjectHideFlags: 0

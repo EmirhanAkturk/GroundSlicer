@@ -7,6 +7,9 @@ public class PitControl : MonoBehaviour
     // Start is called before the first frame update
     TrailRenderer trail;
     List<GameObject> cubes;
+    
+    [SerializeField]
+    GameObject PitTrigger;
 
     bool cycle = false;
 
@@ -14,7 +17,6 @@ public class PitControl : MonoBehaviour
     {
         trail = GetComponent<TrailRenderer>();
         cubes = new List<GameObject>();
-        Debug.Log("Trail.duration:" + trail.time);
     }
 
     // Update is called once per frame
@@ -27,12 +29,11 @@ public class PitControl : MonoBehaviour
     {
         List < List < GameObject >> BoundariesCubes = new List<List<GameObject>>();
 
-        //if (BoundariesCubes.Count == 0)
-        {
-            List<GameObject> gameObjects = new List<GameObject>();
-            gameObjects.Add(cubes[0]);
-            BoundariesCubes.Add(gameObjects);
-        }
+      
+        List<GameObject> firstGameObjects = new List<GameObject>();
+        firstGameObjects.Add(cubes[0]);
+        BoundariesCubes.Add(firstGameObjects);
+        
 
         int j;
         bool isAdded;
@@ -77,25 +78,23 @@ public class PitControl : MonoBehaviour
             }
 
             if (!isAdded) { // elimizdeki satırlarla aynı yükseklikte değilse yeni satır olarak ekle
-                if (nearestIndex == 100)
-                    Debug.Log("nearestIndex:100");
-                    
-                    if (cubes[i].transform.position.z < BoundariesCubes[nearestIndex][0].transform.position.z)//en yakının üstüne ekle
-                    {
-                        List<GameObject> gameObjects = new List<GameObject>();
-                        gameObjects.Add(cubes[i]);
-                        BoundariesCubes.Insert(nearestIndex, gameObjects);
-                    }
-                    else // en yakının altına ekle
-                    {
-                        List<GameObject> gameObjects = new List<GameObject>();
-                        gameObjects.Add(cubes[i]);
-                        if( (nearestIndex+1) >= (cubes.Count-1)) // en son satırsa sonuna ekle
-                            BoundariesCubes.Add(gameObjects);
+                                
+                if (cubes[i].transform.position.z < BoundariesCubes[nearestIndex][0].transform.position.z)//en yakının üstüne ekle
+                {
+                    List<GameObject> gameObjects = new List<GameObject>();
+                    gameObjects.Add(cubes[i]);
+                    BoundariesCubes.Insert(nearestIndex, gameObjects);
+                }
+                else // en yakının altına ekle
+                {
+                    List<GameObject> gameObjects = new List<GameObject>();
+                    gameObjects.Add(cubes[i]);
+                    if( (nearestIndex+1) >= (cubes.Count-1)) // en son satırsa sonuna ekle
+                        BoundariesCubes.Add(gameObjects);
 
-                        else // en son satır değilse araya ekle 
-                            BoundariesCubes.Insert(nearestIndex + 1, gameObjects);
-                    }
+                    else // en son satır değilse araya ekle 
+                        BoundariesCubes.Insert(nearestIndex + 1, gameObjects);
+                }
             }
           
         }
@@ -106,30 +105,33 @@ public class PitControl : MonoBehaviour
     void AddRigidBody()
     {
         List<List<GameObject>> BoundariesCubes = SortingBoundariesCubes();
-        Debug.Log("BoundariesCubes.Count:" + BoundariesCubes.Count);
 
-        for(int i = 0; i< BoundariesCubes.Count; ++i) {
-            Debug.Log((i + 1) + " .satır:");
-            PrintList(BoundariesCubes[i]);
+        for (int i = 0; i < BoundariesCubes.Count; ++i)
+        {
+            int size = BoundariesCubes[i].Count;
+
+            Vector3 pos = (BoundariesCubes[i][0].transform.position + BoundariesCubes[i][size - 1].transform.position) / 2;
+
+            GameObject newPitTrigger = Instantiate(PitTrigger, pos, Quaternion.identity);
+            float x = Mathf.Abs(BoundariesCubes[i][0].transform.position.x - BoundariesCubes[i][size - 1].transform.position.x);
+
+            newPitTrigger.transform.localScale = new Vector3((x-2) * 0.9f, 0.9f, 0.9f);
+           
         }
 
-        for (int i = 0; i < cubes.Count; ++i)
+        while (cubes.Count>0)
         {
-            if (cubes[i].GetComponent<Rigidbody>() == null)
+            if (cubes[0].GetComponent<Rigidbody>() == null)
             {
-                cubes[i].transform.localScale *= 0.95f;
-                cubes[i].AddComponent<Rigidbody>();
-
+                cubes[0].transform.localScale *= 0.95f;
+                cubes[0].AddComponent<Rigidbody>();
             }
+
+            Destroy(cubes[0], 2f);
+            cubes.RemoveAt(0);
         }
     }
    
-    void PrintList(List<GameObject>gameObjects)
-    {
-        for (int i = 0; i < gameObjects.Count; ++i)
-            Debug.Log((i + 1) + ". sütün" + gameObjects[i].transform.position);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         GameObject otherObject = other.transform.gameObject;
@@ -141,7 +143,6 @@ public class PitControl : MonoBehaviour
         {
             cubes.Add(otherObject);
             StartCoroutine(RemoveFromList(otherObject, trail.time));
-            //Debug.Log(otherObject.transform.position);
         }
         else if(cubes[cubes.Count -1] != otherObject)
         {
@@ -170,7 +171,6 @@ public class PitControl : MonoBehaviour
             {
                 cubes.Add(otherObject);
                 StartCoroutine(RemoveFromList(otherObject, trail.time));
-                //Debug.Log(otherObject.transform.position);
 
             }
         }

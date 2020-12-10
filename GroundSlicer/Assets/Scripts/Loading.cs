@@ -19,7 +19,7 @@ public class Loading : MonoBehaviour
         while (!async.isDone)
         {
             loading.value = async.progress + 0.1f;
-            Debug.Log(async.progress);
+            
             yield return null;
         }
     }
