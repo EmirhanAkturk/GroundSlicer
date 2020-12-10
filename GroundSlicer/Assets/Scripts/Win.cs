@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    //[SerializeField] GameObject player;
+    [SerializeField] GameObject trailRender;
     [SerializeField] GameObject levelWinPanel;
     Rigidbody rbCharacter;
     Animation anim;
@@ -27,6 +27,7 @@ public class Win : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
+            Destroy(trailRender);
             GetComponentInParent<MoveController>().enabled = false;
             winner = true;
             anim.Stop("Run");

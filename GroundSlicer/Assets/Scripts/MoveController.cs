@@ -6,7 +6,9 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     Win win;
+    GameOver gameOver;
     [SerializeField] Rigidbody rbCharacter;
+    [SerializeField] GameObject deathParticle;
     [SerializeField] float speed;
     Animation anim;
     float vX0, vX1;
@@ -16,6 +18,7 @@ public class MoveController : MonoBehaviour
     Vector2 lastPos;
     Vector3 currVelocity;
     float rotationAngle;
+    float firstHigh;
     bool isMove;
 
     // Start is called before the first frame update
@@ -25,12 +28,14 @@ public class MoveController : MonoBehaviour
         anim = GetComponent<Animation>();
         vY0 = speed;
         win = FindObjectOfType<Win>();
+        gameOver = FindObjectOfType<GameOver>();
+        firstHigh = transform.position.y;
     }
 
     void Update()
     {  
         TouchControl();
-
+        DeathController();
         rbCharacter.velocity = currVelocity;
         RotateSmooth(rotationAngle);
     }
@@ -152,5 +157,15 @@ public class MoveController : MonoBehaviour
        
         transform.Rotate(0, angleDistance, 0);
         transform.rotation = Quaternion.Euler(0, rotationAngle, 0);
+    }
+
+    void DeathController()
+    {
+        if (transform.position.y < 0.5f)
+        {
+            Camera.main.GetComponent<FollowCamera>().enabled = false;
+            gameOver.Death();
+            //deathParticle.SetActive(false);
+        }
     }
 }

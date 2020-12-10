@@ -31,13 +31,20 @@ public class GameOver : MonoBehaviour
             health -= bulletPower;
             if (health <= 0)
             {
-                GetComponentInParent<MoveController>().enabled = false;
-                deathParticle.SetActive(true);
-                trailParticle.SetActive(false);
-                splashSprite.SetActive(true);
-                gameOverPanel.SetActive(true);
-                Destroy(playerMesh);
+                Death();
             }
         }
+    }
+
+    public void Death()
+    {
+        if (!(transform.position.y < 0.5f))
+            deathParticle.SetActive(true);
+        
+        GetComponentInParent<MoveController>().enabled = false;
+        trailParticle.SetActive(false);
+        splashSprite.SetActive(true);
+        gameOverPanel.SetActive(true);
+        Destroy(playerMesh);
     }
 }

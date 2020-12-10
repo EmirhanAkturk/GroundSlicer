@@ -204,25 +204,31 @@ public class PitControl : MonoBehaviour
 
     bool LineCheck()
     {
-        float X0 = cubes[0].transform.position.x;
-        float Z0 = cubes[0].transform.position.z;
-
-        float X1 = cubes[cubes.Count-1].transform.position.x;
-        float Z1 = cubes[cubes.Count-1].transform.position.z;
-        
-        float m = Slope(X0,Z0,X1,Z1);
-
-        for(int i = 1;i<cubes.Count-1; ++i)
+        if (cubes[0] != null)
         {
-            X1 = cubes[i].transform.position.x;
-            Z1 = cubes[i].transform.position.z;
+            float X0 = cubes[0].transform.position.x;
+            float Z0 = cubes[0].transform.position.z;
+    
+            float X1 = cubes[cubes.Count-1].transform.position.x;
+            float Z1 = cubes[cubes.Count-1].transform.position.z;
+            
+            float m = Slope(X0,Z0,X1,Z1);
+    
+            for(int i = 1;i<cubes.Count-1; ++i)
+            {
+                if (cubes[i] != null)
+                {
+                    X1 = cubes[i].transform.position.x;
+                    Z1 = cubes[i].transform.position.z;
 
-            if(m != Slope(X0, Z0, X1, Z1)){
-                return false;
+                    if (m != Slope(X0, Z0, X1, Z1))
+                    {
+                        return false;
+                    }
+                }
             }
-
         }
-        return true;
+            return true;
     }
 
 
